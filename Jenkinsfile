@@ -7,14 +7,13 @@ pipeline {
        }
     }
    stage("Build") {
-     steps {
-	   
-    bat ''' 
-    	    mvn install -DskipTests=true
-	    // mvn clean install
-      	    
-       '''
-   }
+     steps {  
+       bat 'mvn clean package -DskipTests'
+	    //''' 
+    	    // mvn install -DskipTests=true
+	    // mvn clean install	    
+            // '''
+     }
    }
 	  
 
