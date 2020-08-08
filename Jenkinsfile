@@ -46,7 +46,7 @@ pipeline {
       steps{
         echo "Deploying to Dev Environment"
         sh "docker rm -f shopizer || true"
-        sh "docker run -d --name=shopizer -p 8081:8080 debaduttapradhan1996/shopizer-app"
+        sh "docker run -d --name=shopizer -p 8082:8080 debaduttapradhan1996/shopizer-app"
       }
     }
   }
