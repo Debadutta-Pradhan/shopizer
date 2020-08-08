@@ -14,6 +14,12 @@ pipeline {
 	      
       }
     }
+     stage ('Archive') {
+      steps{
+        echo "Archiving Project"
+        archiveArtifacts artifacts: '**/*war', followSymlinks: false
+      }
+    }
   
     stage ('Build Docker Image') {
       steps{
