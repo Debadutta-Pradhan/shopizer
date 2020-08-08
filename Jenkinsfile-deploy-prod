@@ -1,0 +1,23 @@
+pipeline {
+  agent any
+  stages{  
+      stage('Deploy to Prod1') {
+                steps {
+                  echo "Deploying to Prod1"
+                  sshagent(['ssh-key']) {
+                      sh "ssh -o StrictHostKeyChecking=no ec2-user@54.175.230.192 docker rm -f shopizer || true"
+                      sh "ssh -o StrictHostKeyChecking=no ec2-user@54.175.230.192 docker run -d --name=shopizer -p 8081:8080 debaduttapradhan1996/shopizer-app"
+                  }
+                }
+      }
+      stage('Deploy to Prod2') {
+                steps {
+                  echo "Deploying to Prod2"
+                  sshagent(['ssh-key']) {
+                      sh "ssh -o StrictHostKeyChecking=no ec2-user@3.81.189.69 docker rm -f shopizer || true"
+                      sh "ssh -o StrictHostKeyChecking=no ec2-user@3.81.189.69 docker run -d --name=shopizer -p 8081:8080 debaduttapradhan1996/shopizer-app"
+                  }
+                }
+      }         
+  }
+}
