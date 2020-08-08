@@ -1,10 +1,8 @@
 pipeline {
   environment {
     registry = "debaduttapradhan1996/shopizer-app"
-    registry1 = "debaduttapradhan1996/shopizer-app1"
     registryCredential = 'docker_hub_debadutta'
     dockerImage = ''
-    dockerImage1 = ''
   }
   agent any
   stages{
@@ -23,7 +21,6 @@ pipeline {
 	sh 'cd sm-shop'
         script {
           dockerImage = docker.build registry + ":$BUILD_NUMBER"
-	  dockerImage1 = docker.build registry1 + ":$BUILD_NUMBER"
         }
       }
     }
