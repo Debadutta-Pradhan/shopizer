@@ -18,8 +18,9 @@ pipeline {
     stage ('Build Docker Image') {
       steps{
         echo "Building Docker Image"
-	cd sm-shop
+	
         script {
+	  cd sm-shop
           dockerImage = docker.build registry + ":$BUILD_NUMBER"
         }
       }
