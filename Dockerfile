@@ -18,7 +18,7 @@ RUN rm -rf /usr/local/tomcat/webapps/ROOT
 
 RUN mkdir -p /usr/local/tomcat/files
 
-ADD  ./target/ROOT.war /shopizer.war
+ADD  sm-shop/target/ROOT.war /shopizer.war
 ADD ./SALESMANAGER.h2.db /usr/local/tomcat/
 COPY ./files/ /usr/local/tomcat/files/
 RUN ls -la /usr/local/tomcat/files/*
