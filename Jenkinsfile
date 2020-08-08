@@ -18,7 +18,7 @@ pipeline {
       steps{
         echo "Archiving Project"
         archiveArtifacts artifacts: '**/*war', followSymlinks: false
-	archiveArtifacts artifacts: '**/*jar', followSymlinks: false
+	
       }
     }
   
